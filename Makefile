@@ -1,5 +1,5 @@
-
 init:
+	docker-compose run --rm app sh -c 'npm install'
 	docker-compose up -d --build
 destroy:
 	docker-compose down --rmi all --volumes
@@ -25,5 +25,7 @@ logs-watch:
 
 app:
 	docker-compose exec app bash
-lint:
+app-npm-install:
+	docker-compose exec app npm install
+app-npm-lint:
 	docker-compose exec app npm run lint
